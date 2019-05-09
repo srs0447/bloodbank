@@ -1,0 +1,236 @@
+.caption-value h4 {
+  font-size: 40px;
+  color: #f4f4f4;
+  font-weight: 600;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+.carousel-item h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 700;
+  color: #f4f4f4;
+}
+.carousel-item p {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 50px;
+  color: #f4f4f4;
+}
+.donate-about h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #444;
+}
+.donate-about p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #444;
+}
+@media screen and (max-width: 560px) {
+  .carousel-item p {
+    margin-top: 0;
+  }
+  .carousel-item h2 {
+    margin-top: 0;
+  }
+  .caption-value h4 {
+    font-size: 30px;
+  }
+}
+
+.fixed-nav {
+  position: fixed;
+  background: #757575a8;
+  top: 0;
+  transition: top 2s;
+}
+#myVideo {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+}
+.links li {
+  padding: 10px;
+}
+.links li > .btn {
+  width: 100%;
+}
+.links li > .left {
+  text-align: left;
+}
+.impLinks ul li {
+  font-size: 1.5rem;
+}
+.box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 5px;
+  background-color: #87cad800;
+  margin-bottom: 40px;
+}
+.box .material-icons {
+  font-size: 5rem;
+  color: red;
+  text-align: center;
+}
+.box h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+}
+
+.search h2 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #444;
+}
+.rsInit {
+  background-color: #f4f2ee;
+  background-image: url("../image/connected1.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+.rsInit .shadows {
+  background-color: #545454a6;
+}
+
+.rsInit h3 {
+  font-size: 50px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.box .num {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.rsc {
+  font-size: 1.3rem;
+  color: #444;
+  text-align: left;
+  line-height: 2;
+  font-weight: 400;
+}
+.login_logo {
+  background: rgb(109, 109, 109);
+  color: #ffffff;
+}
+.login_logo img {
+  width: 100%;
+  height: 100%;
+}
+.textLogo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.textLogo h3 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 78px;
+}
+@media screen and (max-width: 500px) {
+  .col.s12 > .textLogo h3 {
+    margin-top: 10px;
+  }
+  .fixed-nav {
+    position: none;
+    top: auto;
+  }
+}
+.quick .btn {
+  width: 100%;
+}
+.quick .quick-links {
+  padding: 10px;
+}
+.services h3 {
+  color: #444;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.service-box {
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.service-box .material-icons {
+  font-size: 6rem;
+  text-align: center;
+  color: #22bbaa;
+  border: 2px solid gray;
+  border-radius: 50px;
+}
+.service-box h1 {
+  font-size: 1.8rem;
+  color: #444444;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 20px;
+}
+.service-box p {
+  text-align: left;
+  margin-left: 20px;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.aimImg img {
+  padding: 10px;
+  margin: 20px;
+}
+.who h3 {
+  font-weight: 600;
+}
+.rsbutton {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.rsbutton a {
+  padding: 20px;
+  margin: 20px;
+}
+.pImage {
+  padding: 20px;
+  margin: 10px;
+  float: right;
+}
+@media screen and (max-width: 500px) {
+  .pImage {
+    float: none;
+    text-align: center;
+  }
+}
+
+.pImage img {
+  max-width: 150px;
+  max-height: 150px;
+}
+.rsbio h4 {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-transform: capitalize;
+}
+.rsbio .material-icons {
+  font-size: 62px;
+  text-align: center;
+  color: rgb(87, 206, 40);
+}
