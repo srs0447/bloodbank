@@ -14,14 +14,33 @@
    if (mysqli_num_rows($result) > 0){
      while($rows = mysqli_fetch_assoc($result)){
        $id = $rows['id'];
-       $name = $rows['fname']."  ". $rows['lname'];
+       $fname = $rows['fname'];
+       $lname = $rows['lname'];
+       $name = $fname."  ". $lname;
        $mail = $rows['email'];
        $mobi = $rows['mobile'];
        $bloodgroup = $rows['bloodg'];
-       $area = $rows['area'];
        $status = $rows['status'];
+       $state = $rows['states'];
+       $district = $rows['district'];
      }
    }
+
+   if(isset($_POST['update'])){
+     $nfname = $_POST['nfname'];
+     $nlname = $_POST['nlname'];
+     $nmobi = $_POST['nmobi'];
+     $sql = "UPDATE users SET fname='$nfname', lname='$nlname', mobile='$nmobi' WHERE id='$id'";
+
+    if (mysqli_query($conn, $sql)) {
+        
+        header("Location: profile.php");
+    } else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+   }
+
+
 ?>
 
 
@@ -99,28 +118,66 @@
             </div>
             <div class="card-action">
         
-              <a href="#">Update Conatct</a>
+             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Update</a>
             </div>
           </div>
         </div>
+
+
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Address Info</span>
               <?php if($state == "" && $district == ""): ?>
                 <p>No address found Update the data</p>
-                 <a href="#" class="btn btn-small">Insert Data</a>
+                 <a href="prof_update.php" class="btn btn-small">Insert Data</a>
               <?php else: ?>
               <p><strong>State: </strong><?php echo $state; ?></p>
               <p><strong>District: </strong><?php echo $district; ?></p>
               <?php endif; ?>
             </div>
             <div class="card-action">
-              <a href="#">Update Address</a>
+              <a href="prof_update.php">Update Address</a>
             </div>
           </div>
         </div>
       </div>
    </div>
 </div>
+
+
+
+<!-- Modal Update -->
+        <div id="modal1" class="modal bottom-sheet">
+          <div class="modal-content">
+           <div class="row">
+            <form class="col s12" action="profile.php" method="POST">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate" name="nfname" value="<?php echo $fname; ?>">
+                  <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_telephone" type="text" class="validate" name="nlname" value="<?php echo $lname; ?>">
+                  <label for="icon_telephone">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                 <i class="material-icons prefix">phone</i>
+                  <input id="mobile" type="text" class="validate" value="<?php echo $mobi; ?>" name="nmobi">
+                  <label for="mobile">Mobile</label>
+                </div>
+              </div>
+              <button id="submit" class="btn waves-effect waves-light" type="submit" name="update" style=" width: 100%;">Update
+              </button>
+            </form>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
 <?php include "footer.php" ?>

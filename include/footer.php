@@ -116,6 +116,9 @@
             $('#nav').removeClass('fixed-nav');
         }
     });
+   $(document).ready(function(){
+      $('.modal').modal();
+    });
     
 </script>
 </body>
