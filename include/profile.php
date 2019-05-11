@@ -39,6 +39,54 @@
         echo "Error updating record: " . mysqli_error($conn);
     }
    }
+   if(isset($_POST['donate'])){
+
+       $available = "available";
+       $sql = "UPDATE users SET `status`='$available' WHERE id='$id'";
+
+        if (mysqli_query($conn, $sql)) {
+            
+        echo "<script>
+        alert('Status updated successfully');
+        window.location.href='profile.php';
+        </script>";
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+      
+   }
+   if(isset($_POST['request'])){
+
+       $need = "need";
+       $sql = "UPDATE users SET `status`='$need' WHERE id='$id'";
+
+        if (mysqli_query($conn, $sql)) {
+            
+        echo "<script>
+        alert('Status updated successfully');
+        window.location.href='profile.php';
+        </script>";
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+      
+   }
+   if(isset($_POST['normal'])){
+
+       $normal = "none";
+       $sql = "UPDATE users SET `status`='$normal' WHERE id='$id'";
+
+        if (mysqli_query($conn, $sql)) {
+            
+        echo "<script>
+        alert('Status updated successfully');
+        window.location.href='profile.php';
+        </script>";
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+      
+   }
 
 
 ?>
@@ -69,11 +117,14 @@
                  <div class="col s12 m8 rsbio">
                     <h4> <i class='material-icons'>person</i> <?php echo $name; ?></h4>
                     <?php if($status == "available"): ?>
-                    <h4>Status: <span class="green=text">Available to donate</span></h4>
+                    <h4>Status: <span class="green=text">Ready to Donate <?php echo $bloodgroup; ?></span></h4>
+                    <a href="#" class="btn btn-small">See the available Requesters</a>
                     <?php elseif($status == "need"): ?>
                     <h4>Status: <span class="red-text">Need Blood <?php echo $bloodgroup; ?></span></h4>
+                    <a href="#" class="btn btn-small">See the available Donors</a>
                     <?php else: ?>
                     <h4>Status: <span class="green-text">I'm Fine. </span></h4>
+                    <h5>You can save the life <strong> Donate Blood</strong></h5>
                     <?php endif; ?>
                  </div>
                </div>
@@ -82,23 +133,32 @@
               <div class="rsbutton">
                 <div class="row">
                   <div class="col s6 m6">
-                      <form action="functions.php" method="post">
+                      <form action="profile.php" method="post">
                       <a
                         class="btn-floating btn-large cyan pulse tooltipped" 
                         data-position="bottom" data-tooltip="Click Here to Donate">
                         <i class="material-icons">favorite</i>
                       </a>
+                      <?php if($status == "available"): ?>
+                      <input type="submit" name="normal" value="Normal" class="btn btn-small green">
+                      <?php else: ?>
                       <input type="submit" name="donate" value="Donate" class="btn btn-small green">
+                      <?php endif; ?>
                     </form>
                   </div>
+
                   <div class="col s6 m6">
-                      <form action="functions.php" method="post">
+                      <form action="profile.php" method="post">
                       <a 
                         class="btn-floating btn-large cyan pulse tooltipped"
                         data-position="bottom" data-tooltip="Click Here to Request">
                         <i class="material-icons">favorite</i>
                       </a>
-                      <input type="submit" name="request" value="Request" class="btn btn-small green">
+                       <?php if($status == "need"): ?>
+                       <input type="submit" name="normal" value="Normal" class="btn btn-small green">
+                       <?php else: ?>
+                       <input type="submit" name="request" value="Request" class="btn btn-small green">
+                       <?php endif; ?>
                     </form>
                   </div>
                 </div>

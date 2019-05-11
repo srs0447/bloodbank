@@ -4,27 +4,27 @@
   $email_error = "";
   $mob_error = "";
   $pass_error = "";
-  $bd_name = "";
+  $bb_name = "";
   $email = "";
   $mobile = "";
   $pass = "";
   $cpass = "";
 
-  if(isset($_POST['submit'])){
-    $bd_name = $_POST['bd_name'];
+  if(isset($_POST['bank_register'])){
+    $bb_name = $_POST['bb_name'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
     $pass = $_POST['pass'];
     $cpass = $_POST['cpass'];
 
     // email check 
-    $sql = "SELECT email FROM users";
+    $sql = "SELECT bank_email FROM banks";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
     // output data of each row
       while($row = mysqli_fetch_assoc($result)) {
-           if($row['email'] == $email){
+           if($row['bank_email'] == $email){
               $email_error = "The email is Already Exists..";
            }
            
@@ -37,21 +37,21 @@
         {
           $mobile =  $mobile;
 
-          $sql = "SELECT mobile FROM users";
+          $sql = "SELECT bank_mobile FROM banks";
           $result = mysqli_query($conn, $sql);
 
           if (mysqli_num_rows($result) > 0) {
           // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
-                if($row['mobile'] == $mobile){
+                if($row['bank_mobile'] == $mobile){
                     $mob_error = "The mobile number is Already Exists..";
                 }
                 
               }
           }
           if($pass == $cpass){
-                $query = "INSERT INTO users (fname, lname, email, dob, pass, mobile, bloodg)
-                VALUES ('$bd_name', '$email', '$pass', '$mobile',)";
+                $query = "INSERT INTO banks(bank_name, bank_email, bank_mobile, bank_pass)
+                VALUES('$bb_name', '$email','$mobile', '$pass')";
 
                 if (mysqli_query($conn, $query)) {
                     header("Location: success.php");
@@ -80,13 +80,13 @@
 
 ?>
 <div class="container">
-<h2> Blood Bank Registration page.........</h2>
+<h2> Blood Bank Registration page</h2>
 <div class="row">
-    <form class="col s12" method="post" action="register.php">
+    <form class="col s12" method="post" action="register_bank.php">
       <div class="row">
         <div class="input-field col s12">
-          <input  id="bd_name" type="text" class="validate" name="bd_name" value="<?php echo $bd_name; ?>" required>
-          <label for="bd_name">Blood Bank Name</label>
+          <input  id="bb_name" type="text" class="validate" name="bb_name" value="<?php echo $bb_name; ?>" required>
+          <label for="bb_name">Blood Bank Name</label>
         </div>
       </div>
       <div class="row">
@@ -117,7 +117,7 @@
         </div>
       </div>
       
-      <input type="submit" name="submit" value="Rgister" class="btn btn-success">
+      <input type="submit" name="bank_register" value="Rgister" class="btn btn-success">
     </form>
   </div>
 </div>

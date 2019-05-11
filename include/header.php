@@ -62,13 +62,17 @@
 
           <li><a href="/bloodbank/include/contact.php">Contact </a></li>
           <li><a href="/bloodbank/include/about.php">About</a></li>
-          <?php if (!isset($_SESSION['email'])): ?>
+          <?php if (!isset($_SESSION['email']) && !isset($_SESSION['username'])): ?>
           <li><a href="/bloodbank/include/login.php">Login</a></li>
           <li><a href="/bloodbank/include/register.php">Register</a></li>
           <li><a href="/bloodbank/include/register_bank.php">Register Bank</a></li>
           <?php else: ?>
           <li><a href="/bloodbank/include/logout.php">Logout</a></li>
+          <?php if(isset($_SESSION['email'])): ?>
           <li><a href="#"><?php echo $_SESSION['email']; ?></a></li>
+          <?php else: ?>
+          <li><a href="#"><?php echo $_SESSION['username']; ?></a></li>
+          <?php endif; ?>
           <?php endif; ?>
           <li><a href="/bloodbank/include/faq.php">FAQ</a></li>
         </ul>
@@ -80,13 +84,15 @@
       <li><a href="/bloodbank/include/login.php">Request</a></li>
       <li><a href="/bloodbank/include/contact.php">Contact </a></li>
       <li><a href="/bloodbank/include/about.php">About</a></li>
-      <?php if (!isset($_SESSION['email'])): ?>
+      <?php if (!isset($_SESSION['email']) && !isset($_SESSION['username'])): ?>
       <li><a href="/bloodbank/include/login.php">Login</a></li>
       <li><a href="/bloodbank/include/register.php">Register</a></li>
       <li><a href="/bloodbank/include/register_bank.php">Register Bank</a></li>
-      <?php else: ?>
-      <li><a href="/bloodbank/include/logout.php">Logout</a></li>
+      <?php if(isset($_SESSION['email'])): ?>
       <li><a href="#"><?php echo $_SESSION['email']; ?></a></li>
+      <?php else: ?>
+      <li><a href="#"><?php echo $_SESSION['username']; ?></a></li>
+      <?php endif; ?>
       <?php endif; ?>
       <li><a href="/bloodbank/include/faq.php">FAQ</a></li>
     </ul>

@@ -80,6 +80,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+
 <script>
     $(document).ready(function () {
         $(".sidenav").sidenav();
@@ -119,6 +120,19 @@
    $(document).ready(function(){
       $('.modal').modal();
     });
+    function show1(){
+        if($( "#user_login" ).prop( "checked", true )){
+          $("#user_logins").show();
+          $("#bank_logins").hide();
+        }
+    }
+    function show2(){
+        if($( "#bank_login" ).prop( "checked", true )){
+           $("#user_logins").hide();
+          $("#bank_logins").show();
+          
+        }
+    }
     
 </script>
 </body>
