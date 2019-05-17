@@ -1,10 +1,10 @@
 <?php 
     include_once("header.php");
     include_once("connection.php");
-   if(!isset($_SESSION['email'])){
+   if(!isset($_SESSION['username'])){
        header("Location: login.php");
    }
-   $email = $_SESSION['email'];
+   $email = $_SESSION['username'];
    $state = "";
    $district = "";
    $country = "";
@@ -15,7 +15,7 @@
    $success = "";
    $fail = "";
 
-   $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
+   $sql = "SELECT * FROM `banks` WHERE `bank_email` = '$email'";
    $result = mysqli_query($conn, $sql);
    if (mysqli_num_rows($result) > 0){
      while($rows = mysqli_fetch_assoc($result)){
@@ -39,7 +39,7 @@
     $post = $_POST['post'];
     $pin = $_POST['pin'];
 
-     $sql = "UPDATE users 
+     $sql = "UPDATE banks 
             SET 
                 pin='$pin', 
                 post='$post', 
@@ -48,7 +48,7 @@
                 district='$district',
                 states='$state',
                 country='$country' 
-            WHERE email='$email'";
+            WHERE bank_email='$email'";
 
     if (mysqli_query($conn, $sql)) {
         $success = "Data updation is Successfull :)";
@@ -83,13 +83,13 @@
     <h4 class="center-align">Update Address Details</h4>
     <?php if(!empty($success)): ?>
         <h5 class="center-align green">Updated Address Successfull :)</h5>
-        <a href="profile.php" class="btn btn-small center-align">Go to Dashboard</a>
+        <a href="bank_profile.php" class="btn btn-small center-align">Go to Dashboard</a>
     <?php endif; ?>
     <?php if(!empty($fail)): ?>
         <h5 class="center-align red">Something goes wrong :(</h5>
     <?php endif; ?>
         <div class="row">
-            <form class="col s12" action="prof_update.php" method="post">
+            <form class="col s12" action="bank_update.php" method="post">
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <input id="country" type="text" class="validate" name="country" value="<?php echo $country; ?>">

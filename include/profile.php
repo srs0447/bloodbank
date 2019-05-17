@@ -1,7 +1,6 @@
 <?php 
     include_once("header.php");
     include_once("connection.php");
-    include_once("functions.php");
    if(!isset($_SESSION['email'])){
        header("Location: login.php");
    }
@@ -118,10 +117,10 @@
                     <h4> <i class='material-icons'>person</i> <?php echo $name; ?></h4>
                     <?php if($status == "available"): ?>
                     <h4>Status: <span class="green=text">Ready to Donate <?php echo $bloodgroup; ?></span></h4>
-                    <a href="#" class="btn btn-small">See the available Requesters</a>
+                    <a href="search.php?donate=<?php echo $status;?>" class="btn btn-small">See the available Requesters</a>
                     <?php elseif($status == "need"): ?>
                     <h4>Status: <span class="red-text">Need Blood <?php echo $bloodgroup; ?></span></h4>
-                    <a href="#" class="btn btn-small">See the available Donors</a>
+                    <a href="search.php?require=<?php echo $status;?>" class="btn btn-small">See the available Donors</a>
                     <?php else: ?>
                     <h4>Status: <span class="green-text">I'm Fine. </span></h4>
                     <h5>You can save the life <strong> Donate Blood</strong></h5>

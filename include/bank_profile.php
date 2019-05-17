@@ -11,10 +11,28 @@
    if (mysqli_num_rows($result) > 0){
      while($rows = mysqli_fetch_assoc($result)){
        $id = $rows['id'];
-       $bbname= $rows['bank_name'];
+       $bbname = $rows['bank_name'];
+       $email = $rows['bank_email'];
+       $phone = $rows['bank_mobile'];
+       $state= $rows['states'];
+       $district= $rows['district'];
+       
      }
    }
 
+
+   if(isset($_POST['add_blood'])){
+     $name = $_POST['blood_name'];
+     $unit = $_POST['blood_unit'];
+     $sql1 = "INSERT INTO `bloods` (`name`, `unit`, `bbid`)
+      VALUES ('$name', '$unit', '$id')";
+
+      if (mysqli_query($conn, $sql1)) {
+          echo "<script>alert('Record added'); </script>";
+      } else {
+          echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
+      }
+   }
 
 
 
@@ -57,9 +75,11 @@
                             $results = mysqli_query($conn, $sqli); ?>
                             <?php if (mysqli_num_rows($results) > 0): ?>
                             <?php  while($list = mysqli_fetch_assoc($results)): ?>
+                            <?php $blood_name = $list['name']; ?>
+                            <?php $blood_unit = $list['unit']; ?>
                             <tr>
-                                <td style="text-transform:capitalize;"><?php echo $list['name']; ?></td>
-                                <td><?php echo $list['unit']; ?></td>
+                                <td style="text-transform:capitalize;"><?php echo $blood_name; ?></td>
+                                <td><?php echo $blood_unit; ?></td>
                                 <td><a class="waves-effect waves-light btn btn-small modal-trigger" href="#modal_update"><i class="material-icons">edit</i></a></td>
                             </tr>    
                             <?php endwhile; ?>
@@ -82,12 +102,12 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Contact Info</span>
-              <p><strong>E-Mail: </strong> <?php echo ""; ?></p>
-              <p><strong>Mobile: </strong> <?php echo ""; ?></p>
+              <p><strong>E-Mail: </strong> <?php echo $email; ?></p>
+              <p><strong>Mobile: </strong> <?php echo $phone; ?></p>
             </div>
             <div class="card-action">
         
-             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Update</a>
+            
             </div>
           </div>
         </div>
@@ -99,14 +119,14 @@
               <span class="card-title">Address Info</span>
               <?php if($state == "" && $district == ""): ?>
                 <p>No address found Update the data</p>
-                 <a href="prof_update.php" class="btn btn-small">Insert Data</a>
+                 <a href="bank_update.php" class="btn btn-small">Insert Data</a>
               <?php else: ?>
-              <p><strong>State: </strong><?php echo ""; ?></p>
-              <p><strong>District: </strong><?php echo ""; ?></p>
+              <p style="text-transform: uppercase;"><strong>State: </strong><?php echo $state; ?></p>
+              <p style="text-transform: uppercase;"><strong>District: </strong><?php echo $district; ?></p>
               <?php endif; ?>
             </div>
             <div class="card-action">
-              <a href="prof_update.php">Update Address</a>
+              <a href="bank_update.php">Update Address</a>
             </div>
           </div>
         </div>
@@ -117,7 +137,7 @@
 
 
 <!-- Modal Update -->
-        <div id="modal_update" class="modal bottom-sheet">
+        <div id="modal_add" class="modal bottom-sheet">
           <div class="modal-content">
            <div class="row">
             <form class="col s12" action="bank_profile.php" method="POST">
@@ -129,7 +149,7 @@
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">heart</i>
-                  <input id="icon_telephone" type="number" class="validate" name="unit">
+                  <input id="icon_telephone" type="number" class="validate" name="blood_unit">
                   <label for="icon_telephone">Unit</label>
                 </div>
               </div>
@@ -147,7 +167,7 @@
 
 
 
-          <div id="modal_add" class="modal bottom-sheet">
+          <div id="modal1" class="modal bottom-sheet">
           <div class="modal-content">
            <div class="row">
             <form class="col s12" action="bank_profile.php" method="POST">
@@ -172,4 +192,31 @@
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
           </div>
         </div>
+
+         <div id="modal_update" class="modal bottom-sheet">
+          <div class="modal-content">
+           <div class="row">
+            <form class="col s12" action="bank_profile.php" method="POST">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">favorite</i>
+                  <input id="icon_prefix" type="text" class="validate" name="blood_name" value="<?php echo $blood_name; ?>">
+                  <label for="icon_prefix">Blood Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">heart</i>
+                  <input id="icon_telephone" type="number" class="validate" name="blood_unit" value="<?php echo $blood_unit; ?>">
+                  <label for="icon_telephone">Unit</label>
+                </div>
+              </div>
+              <button id="submit" class="btn waves-effect waves-light" type="submit" name="update_blood" style=" width: 100%;">Update Blood
+              </button>
+            </form>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+
 <?php include "footer.php" ?>

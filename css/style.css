@@ -119,8 +119,23 @@
   font-size: 1.3rem;
   color: #444;
   text-align: left;
-  line-height: 2;
+
   font-weight: 400;
+}
+.profile-image .content-text {
+  padding: 10px;
+}
+.profile-image .content-text h4 {
+  color: #444;
+  font-size: 25px;
+  font-weight: 500px;
+}
+.profile-image .content-text span {
+  font-size: 20px;
+}
+.profile-image .content-text .fab {
+  font-size: 40px;
+  padding: 5px;
 }
 .login_logo {
   background: rgb(109, 109, 109);
@@ -197,6 +212,7 @@
 .who h3 {
   font-weight: 600;
 }
+
 .rsbutton {
   align-items: center;
   justify-content: center;

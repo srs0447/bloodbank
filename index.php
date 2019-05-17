@@ -212,7 +212,18 @@ Today in the developed world, most blood donors are unpaid volunteers who donate
             <div class="col s12 m4">
               <div class="service-box">
                 <i class="material-icons">invert_colors</i>
-                <h1>Donate</h1>
+                <h1>Blood Donation</h1>
+                <p>
+                 A blood donation occurs when a person voluntarily has blood drawn and used for 
+                 transfusions and/or made into biopharmaceutical medications 
+                 by a process called fractionation. Donation may be of whole blood, or of specific components directly
+                </p>
+              </div>
+            </div>
+            <div class="col s12 m4">
+              <div class="service-box">
+                <i class="material-icons">invert_colors</i>
+                <h1>Blood Request</h1>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptates, ipsa.
@@ -226,49 +237,7 @@ Today in the developed world, most blood donors are unpaid volunteers who donate
             <div class="col s12 m4">
               <div class="service-box">
                 <i class="material-icons">invert_colors</i>
-                <h1>Donate</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                </p>
-              </div>
-            </div>
-            <div class="col s12 m4">
-              <div class="service-box">
-                <i class="material-icons">invert_colors</i>
-                <h1>Donate</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                </p>
-              </div>
-            </div>
-            <div class="col s12 m4">
-              <div class="service-box">
-                <i class="material-icons">invert_colors</i>
-                <h1>Donate</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates, ipsa.
-                </p>
-              </div>
-            </div>
-             <div class="col s12 m4">
-              <div class="service-box">
-                <i class="material-icons">invert_colors</i>
-                <h1>Donate</h1>
+                <h1>Blood Banks Detail</h1>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptates, ipsa.

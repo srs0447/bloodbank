@@ -53,19 +53,19 @@
                 </li>
                 <li>
                     <a class="waves-effect waves-light btn social twitter">
-                        <i class="fa fa-twitter left"></i> Twitter</a>
+                        <i class="fab fa-twitter left"></i>Twitter</a>
                 </li>
                 <li>
                     <a class="waves-effect waves-light btn social google">
-                        <i class="fa fa-google left"></i> Google</a>
+                        <i class="fab fa-google left"></i> Google</a>
                 </li>
                 <li>
                     <a class="waves-effect waves-light btn social github">
-                        <i class="fa fa-github left"></i> Github</a>
+                        <i class="fab fa-github left"></i> Github</a>
                 </li>
                 <li>
                     <a class="waves-effect waves-light btn social pinterest">
-                        <i class="fa fa-pinterest left"></i> Pinterest</a>
+                        <i class="fab fa-pinterest left"></i> Pinterest</a>
                 </li>
             </ul>
         </div>
@@ -119,20 +119,9 @@
     });
    $(document).ready(function(){
       $('.modal').modal();
+    
     });
-    function show1(){
-        if($( "#user_login" ).prop( "checked", true )){
-          $("#user_logins").show();
-          $("#bank_logins").hide();
-        }
-    }
-    function show2(){
-        if($( "#bank_login" ).prop( "checked", true )){
-           $("#user_logins").hide();
-          $("#bank_logins").show();
-          
-        }
-    }
+    
     
 </script>
 </body>
