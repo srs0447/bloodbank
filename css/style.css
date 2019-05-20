@@ -250,3 +250,14 @@
   text-align: center;
   color: rgb(87, 206, 40);
 }
+
+.bank_detail .card-content h3 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #444;
+}
+.bank_detail .card-content span {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+}

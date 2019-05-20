@@ -50,11 +50,21 @@
     <div class="col s12 m6">
       <div class="card">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
+          <div class="row">
+            <div class="col s6">
+              <div>
+                <h3>Name: </h3>
+              </div>
+            </div>
+            <div class="col s6">
+              <div>
+                <h3><?php echo $nrows['fname'] ." ". $nrows['lname']; ?></h3>
+              </div>
+            </div>
+          </div>
+          <h4>Name: <span><?php echo $nrows['fname'] ." ". $nrows['lname']; ?></span></h4>
+          <h4>District: <span><?php echo $nrows['district']; ?></span></h4>
+          <h4>Mobile: <span><?php echo $nrows['mobile']; ?></span></h4>
         </div>
       </div>
     </div>
@@ -75,13 +85,12 @@ $bankre = mysqli_query($conn, $banksql);
 <?php if(mysqli_num_rows($bankre) > 0): ?>
 <?php while($bankrow = mysqli_fetch_assoc($bankre)): ?>
     <div class="col s12 m6">
-      <div class="card">
+      <div class="card bank_detail">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
+         <h3>Bank Name: <span><?php echo $bankrow['bank_name']; ?></span></h3>
+          <h3>Bank State: <span><?php echo $bankrow['states']; ?></span></h3>
+          <h3>Bank District: <span><?php echo $bankrow['district']; ?></span></h3>
+          <h3>E-mail: <span><?php echo $bankrow['bank_email']; ?></span></h3>
         </div>
       </div>
     </div>

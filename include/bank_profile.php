@@ -1,7 +1,7 @@
 <?php 
     include_once("header.php");
     include_once("connection.php");
-    include_once("functions.php");
+
    if(!isset($_SESSION['username'])){
        header("Location: login.php");
    }
@@ -119,8 +119,7 @@
               <span class="card-title">Address Info</span>
               <?php if($state == "" && $district == ""): ?>
                 <p>No address found Update the data</p>
-                 <a href="bank_update.php" class="btn btn-small">Insert Data</a>
-              <?php else: ?>
+                  <?php else: ?>
               <p style="text-transform: uppercase;"><strong>State: </strong><?php echo $state; ?></p>
               <p style="text-transform: uppercase;"><strong>District: </strong><?php echo $district; ?></p>
               <?php endif; ?>
@@ -144,7 +143,7 @@
               <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">favorite</i>
-                  <input id="icon_prefix" type="text" class="validate" name="blood_name">
+                <input id="icon_prefix" type="text" class="validate" name="blood_name"-->
                   <label for="icon_prefix">Blood Name</label>
                 </div>
                 <div class="input-field col s6">
@@ -200,6 +199,7 @@
               <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">favorite</i>
+                
                   <input id="icon_prefix" type="text" class="validate" name="blood_name" value="<?php echo $blood_name; ?>">
                   <label for="icon_prefix">Blood Name</label>
                 </div>
